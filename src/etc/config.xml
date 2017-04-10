@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MageProfis_SkuSearch>
+            <version>0.0.1</version>
+        </MageProfis_SkuSearch>
+    </modules>
+
+    <global>
+        <models>
+            <skusearch>
+                <class>MageProfis_SkuSearch_Model</class>
+            </skusearch>
+        </models>
+    </global>
+    <frontend>
+        <events>
+            <controller_action_predispatch_catalogsearch_result_index>
+                <observers>
+                    <skusearch>
+                        <class>skusearch/observer</class>
+                        <method>redirectToProductPage</method>
+                    </skusearch>
+                </observers>
+            </controller_action_predispatch_catalogsearch_result_index>
+        </events>
+    </frontend>
+</config>
